@@ -24,7 +24,7 @@ class show_flash_card:
                     self.word = read_write().write()
                     self.display()
             elif choice == 2:
-                self.word = Get_Vocab()
+                self.word = Get_Vocab().get_vocabulary()
                 self.display()
         except ValueError:
             print("Invalid input")
@@ -34,23 +34,22 @@ class show_flash_card:
         print("Press Q to exit")
         try:
             while True:
-                vocab = random.choice(list(self.word.keys()))
-                print('='*12)
-                print(' '*(6- len(vocab)+int(len(vocab)*0.5))+vocab)
-                print('='*12)
-                press = input("Press (M)eaning or (N)ext: ")
                 if len(self.word) == 0:
                     print("You have completed all the words")
                     exit()
-                elif press == 'M' or press == 'm':
+                vocab = random.choice(list(self.word.keys()))
+                print(f'=' * 20)
+                print(f'{vocab:^20}')
+                print('=' * 20)
+                press = input("Press (M)eaning or (N)ext: ")
+                if press == 'M' or press == 'm':
                     print('=' * 20)
-                    print(f"Meaning of {vocab} is {self.word[vocab]}")
+                    print(f"{self.word[vocab]:^20}")
                     print('=' * 20)
-                    press = input("Press (N)ext or (Q)uit: ")
                 elif press == 'Q' or press == 'q':
                     break
                 elif press == 'N' or press == 'n':
-                    pop = self.word.pop(vocab)
+                    _ = self.word.pop(vocab)
                     continue
                 else:
                     print("Invalid input")

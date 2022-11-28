@@ -20,10 +20,13 @@ class flash_card:
                 exit()
             else:
                 print("Invalid input")
+                print('-' * 25)
                 self.start()
         except ValueError:
             print("Invalid input")
+            print('-'*25)
             self.start()
+
 
 if __name__ == '__main__':
     flash_card().start()

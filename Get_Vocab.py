@@ -2,7 +2,6 @@
 class Get_Vocab:
     def __init__(self):
         self.word = {}
-        self.get_vocabulary()
 
     def get_vocabulary(self):
         print("Enter the vocabulary and meaning (Press Q to exit)")
@@ -13,8 +12,8 @@ class Get_Vocab:
             else:
                 meaning = input("Enter the meaning: ")
                 self.word[vocab] = meaning
-        return self.word
+        return dict(self.word)
 
 
 if __name__ == '__main__':
-    Get_Vocab().get_vocabulary()
+    print(Get_Vocab().get_vocabulary())
