@@ -1,13 +1,26 @@
+import csv
+
+
 class read_write:
-    def __init__(self, file_name):
-        self.file_name = file_name
-        self.read()
-        self.write()
+
+    def write(self):
+        with open(input("Enter the file name: "), 'a', newline='') as file:
+            while True:
+                vocab = input("Enter the vocabulary: ")
+                if vocab == "Q" or vocab == 'q':
+                    break
+                else:
+                    meaning = input("Enter the meaning: ")
+                    writer = csv.writer(file)
+                    writer.writerow([vocab, meaning])
+        return self.read()
 
     def read(self):
-        with open(self.file_name, 'r') as file:
-            return file.read()
+        with open(input("Enter the file name: "), 'r') as file:
+            reader = csv.reader(file)
+            return dict(reader)
 
-    def write(self, data):
-        with open(self.file_name, 'w') as file:
-            file.write(data)
+if __name__ == '__main__':
+    # read_write().write()
+    print(read_write().read())
+

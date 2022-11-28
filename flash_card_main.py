@@ -4,30 +4,28 @@ from show_flash_card import show_flash_card
 
 
 class flash_card:
-    def __init__(self, vocabulary, meaning):
-        self.vocabulary = vocabulary
-        self.meaning = meaning
-        self.word = {}
-
-    def start(self, vocabulary, meaning):
+    def start(self):
         print("Welcome to Flash Card Game")
         print("Press select mode to start the game")
         try:
-            choice = int(input("Flash Card Game press 1: \n"
-                               "Show Flash Card press 2: \n"))
+            choice = int(input("Flash Card Game press 1: \n" 
+                               "Show Flash Card press 2: \n" 
+                               "Exit press 3: \n"))
             if choice == 1:
-                FlashCardGame(vocabulary, meaning).start()
+                FlashCardGame().start()
             elif choice == 2:
-                show_flash_card(vocabulary, meaning).start()
+                show_flash_card().start()
             elif choice == 3:
                 print("Thank you for playing")
                 exit()
             else:
                 print("Invalid input")
-                self.start(vocabulary, meaning)
+                self.start()
         except ValueError:
             print("Invalid input")
-            self.start(vocabulary, meaning)
+            self.start()
+
+if __name__ == '__main__':
+    flash_card().start()
 
 
-flash_card('start','start')

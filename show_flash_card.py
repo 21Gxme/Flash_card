@@ -4,35 +4,60 @@ from Get_Vocab import Get_Vocab
 
 
 class show_flash_card:
-    def __init__(self, vocabulary, meaning):
-        self.vocabulary = vocabulary
-        self.meaning = meaning
-        self.word = {}
-        self.start(vocabulary, meaning)
+    def __init__(self):
+        self.vocabulary = None
+        self.meaning = None
+        self.word = None
 
-    def start(self, vocabulary, meaning):
+    def start(self):
         print("Welcome to Show Flash Card")
         print("Press select mode to start the game")
         try:
             choice = int(input("Show Flash Card from CSV file Press(1): \n"
                                "Show Flash Card from users Press(2): \n"))
             if choice == 1:
-                read_write(self)
+                press = input('Press (R)ead or (W)rite: ')
+                if press == 'R' or press == 'r':
+                    self.word = read_write().read()
+                    self.display()
+                elif press == 'W' or press == 'w':
+                    self.word = read_write().write()
+                    self.display()
             elif choice == 2:
-                Get_Vocab(self)
+                self.word = Get_Vocab()
+                self.display()
         except ValueError:
             print("Invalid input")
-            self.start(vocabulary, meaning)
+            self.start()
 
     def display(self):
         print("Press Q to exit")
-        while True:
-            vocab = random.choice(self.vocabulary)
-            meaning = self.word[vocab]
-            print("Vocabulary: ", vocab)
-            user_input = input("Press Enter to see the next word or (S)how the word: ")
-            if user_input == "S" or user_input == "s":
-                print("Meaning: ", meaning)
-                self.word[vocab] = meaning
-            if user_input == "Q" or user_input == 'q':
-                break
+        try:
+            while True:
+                vocab = random.choice(list(self.word.keys()))
+                print('='*12)
+                print(' '*(6- len(vocab)+int(len(vocab)*0.5))+vocab)
+                print('='*12)
+                press = input("Press (M)eaning or (N)ext: ")
+                if len(self.word) == 0:
+                    print("You have completed all the words")
+                    exit()
+                elif press == 'M' or press == 'm':
+                    print('=' * 20)
+                    print(f"Meaning of {vocab} is {self.word[vocab]}")
+                    print('=' * 20)
+                    press = input("Press (N)ext or (Q)uit: ")
+                elif press == 'Q' or press == 'q':
+                    break
+                elif press == 'N' or press == 'n':
+                    pop = self.word.pop(vocab)
+                    continue
+                else:
+                    print("Invalid input")
+        except ValueError:
+            print("Invalid input")
+            self.display()
+
+
+if __name__ == '__main__':
+    show_flash_card().start()

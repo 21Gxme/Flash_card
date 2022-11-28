@@ -8,7 +8,6 @@ class FlashCardGame:
         self.vocabulary = vocabulary
         self.meaning = meaning
         self.word = {}
-        self.start(vocabulary, meaning)
 
     def start(self, vocabulary, meaning):
         print("Welcome to Flash Card Game")
