@@ -21,9 +21,10 @@ class FlashCardGame:
         print("Welcome to Flash Card Game")
         print("Press select mode to start the game")
         try:
-            choice = int(input("Flash Card Game from CSV file Press(1): \n"
-                               "Flash Card Game from users Press(2): \n"))
+            print("Flash Card Game from CSV file Press(1): \n"
+                  "Flash Card Game from users Press(2):")
             print("*-" * 20 + "*")
+            choice = int(input('Enter your choice: '))
             if choice == 1:
                 press = input('Press (R)ead or (W)rite: ')
                 if press == 'R' or press == 'r':
@@ -33,13 +34,17 @@ class FlashCardGame:
                     self.word = read_write().write()
                     self.display()
                 else:
-                    print("Invalid input")
+                    print('-' * 40)
+                    print(f"{'Invalid input':^40}")
+                    print('-' * 40)
                     self.start()
             elif choice == 2:
                 self.word = Get_Vocab().get_vocabulary()
                 self.display()
         except ValueError:
-            print("Invalid input")
+            print('-' * 40)
+            print(f"{'Invalid input':^40}")
+            print('-' * 40)
             self.start()
 
     def display(self):
@@ -51,21 +56,22 @@ class FlashCardGame:
                     exit()
             except TypeError:
                 print("something went wrong")
-                print('-' * 25)
+                print('-' * 40)
                 self.start()
             print(f'HP: {self.hp}')
             vocab = random.choice(list(self.word.keys()))
             vocab_dict = self.word.pop(vocab)
-            print('=' * 20)
-            print(f'{vocab:^20}')
-            print('=' * 20)
+            print('=' * 41)
+            print(f'{vocab:^41}')
+            print('=' * 41)
             meaning = input("Enter the answer: ")
             if vocab_dict == meaning:
                 print("Correct")
                 if self.hp < 3:
                     self.hp += 1
             elif meaning == 'Q' or meaning == 'q':
-                print('♡' * 20)
+                print("Thank you for playing")
+                print('♡' * 41)
                 break
             elif vocab_dict != meaning:
                 print("Incorrect")
@@ -74,13 +80,15 @@ class FlashCardGame:
                 if self.hp > 0:
                     print(f"You have {self.__hp} lives left")
                 elif self.__hp <= 0:
-                    show = f"You have {self.__hp} lives left"
+                    show = f"---> You have {self.__hp} lives left <---"
                     print(f"{show:^47}")
-                    print(f"{'Game Over':^47}")
+                    print(f"{'---> Game Over <---':^47}")
                     print('(T⌓T) (┳Д┳) (ಥ﹏ಥ) ( ╥ω╥ ) (⋟﹏⋞) (;﹏;) (ㄒoㄒ) ಥ_ಥ')
                     exit()
             else:
-                print("Invalid input")
+                print('-' * 41)
+                print(f"{'Invalid input':^41}")
+                print('-' * 41)
                 self.display()
 
 

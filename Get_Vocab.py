@@ -1,4 +1,3 @@
-
 class Get_Vocab:
     def __init__(self):
         self.word = {}
