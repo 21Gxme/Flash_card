@@ -6,8 +6,6 @@ from Get_Vocab import Get_Vocab
 class show_flash_card:
     def __init__(self):
         self.vocabulary = None
-        self.meaning = None
-        self.word = None
 
     def start(self):
         print("Welcome to Show Flash Card")
@@ -23,6 +21,9 @@ class show_flash_card:
                 elif press == 'W' or press == 'w':
                     self.word = read_write().write()
                     self.display()
+                else:
+                    print("Invalid input")
+                    self.start()
             elif choice == 2:
                 self.word = Get_Vocab().get_vocabulary()
                 self.display()
@@ -34,18 +35,22 @@ class show_flash_card:
         print("Press Q to exit")
         try:
             while True:
-                if len(self.word) == 0:
-                    print("You have completed all the words")
-                    exit()
+                try:
+                    if len(self.word) == 0:
+                        print("You have completed all the words")
+                        exit()
+                except TypeError:
+                    print("something went wrong")
+                    self.start()
                 vocab = random.choice(list(self.word.keys()))
                 print(f'=' * 20)
                 print(f'{vocab:^20}')
                 print('=' * 20)
                 press = input("Press (M)eaning or (N)ext: ")
                 if press == 'M' or press == 'm':
-                    print('=' * 20)
+                    print('-' * 20)
                     print(f"{self.word[vocab]:^20}")
-                    print('=' * 20)
+                    print('-' * 20)
                 elif press == 'Q' or press == 'q':
                     break
                 elif press == 'N' or press == 'n':
