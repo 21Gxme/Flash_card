@@ -8,11 +8,13 @@ class show_flash_card:
         self.vocabulary = None
 
     def start(self):
+        print("*-" * 20 + "*")
         print("Welcome to Show Flash Card")
         print("Press select mode to start the game")
         try:
             choice = int(input("Show Flash Card from CSV file Press(1): \n"
                                "Show Flash Card from users Press(2): \n"))
+            print("*-" * 20 + "*")
             if choice == 1:
                 press = input('Press (R)ead or (W)rite: ')
                 if press == 'R' or press == 'r':
@@ -27,6 +29,9 @@ class show_flash_card:
             elif choice == 2:
                 self.word = Get_Vocab().get_vocabulary()
                 self.display()
+            else:
+                print("Invalid input")
+                self.start()
         except ValueError:
             print("Invalid input")
             self.start()
@@ -41,6 +46,7 @@ class show_flash_card:
                         exit()
                 except TypeError:
                     print("something went wrong")
+                    print('-' * 25)
                     self.start()
                 vocab = random.choice(list(self.word.keys()))
                 print(f'=' * 20)
@@ -52,6 +58,8 @@ class show_flash_card:
                     print(f"{self.word[vocab]:^20}")
                     print('-' * 20)
                 elif press == 'Q' or press == 'q':
+                    print("Thank you for playing")
+                    print('♡'*20)
                     break
                 elif press == 'N' or press == 'n':
                     _ = self.word.pop(vocab)

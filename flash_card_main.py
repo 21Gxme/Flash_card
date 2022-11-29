@@ -1,15 +1,14 @@
-
 from flash_card_game import FlashCardGame
 from show_flash_card import show_flash_card
 
 
 class flash_card:
     def start(self):
-        print("Welcome to Flash Card Game")
+        print("Welcome to Flash Card")
         print("Press select mode to start the game")
         try:
-            choice = int(input("Flash Card Game press 1: \n" 
-                               "Show Flash Card press 2: \n" 
+            choice = int(input("Flash Card Game press 1: \n"
+                               "Show Flash Card press 2: \n"
                                "Exit press 3: \n"))
             if choice == 1:
                 FlashCardGame().start()
@@ -24,11 +23,9 @@ class flash_card:
                 self.start()
         except ValueError:
             print("Invalid input")
-            print('-'*25)
+            print('-' * 25)
             self.start()
 
 
 if __name__ == '__main__':
     flash_card().start()
-
-
