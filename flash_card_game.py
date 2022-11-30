@@ -48,7 +48,9 @@ class FlashCardGame:
             self.start()
 
     def display(self):
-        print("Press Q to exit")
+        print("-"*19)
+        print("- Press Q to exit -")
+        print("-" * 19)
         while True:
             try:
                 if len(self.word) <= 0:

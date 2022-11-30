@@ -27,20 +27,28 @@ class show_flash_card:
                 elif press == 'Q' or press == 'q':
                     self.start()
                 else:
-                    print("Invalid input")
+                    print('-' * 41)
+                    print(f"{'Invalid input':^41}")
+                    print('-' * 41)
                     self.start()
             elif choice == 2:
                 self.word = Get_Vocab().get_vocabulary()
                 self.display()
             else:
-                print("Invalid input")
+                print('-' * 41)
+                print(f"{'Invalid input':^41}")
+                print('-' * 41)
                 self.start()
         except ValueError:
-            print("Invalid input")
+            print('-' * 41)
+            print(f"{'Invalid input':^41}")
+            print('-' * 41)
             self.start()
 
     def display(self):
-        print("Press Q to exit")
+        print("-" * 19)
+        print("- Press Q to exit -")
+        print("-" * 19)
         try:
             while True:
                 try:
@@ -70,7 +78,9 @@ class show_flash_card:
                             print("Thank you for playing")
                             print('♡' * 41)
                         else:
-                            print("Invalid input")
+                            print('-' * 41)
+                            print(f"{'Invalid input':^41}")
+                            print('-' * 41)
                             press = input("Press (N)ext or (Q)uit: ")
                 elif press == 'Q' or press == 'q':
                     print("Thank you for playing")
