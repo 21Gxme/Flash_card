@@ -1,3 +1,4 @@
+import os
 import random
 from Read_write import read_write
 from Get_Vocab import Get_Vocab
@@ -6,6 +7,7 @@ from Get_Vocab import Get_Vocab
 class show_flash_card:
     def __init__(self):
         self.word = {}
+        self.mode = []
 
     def start(self):
         print("*-" * 20 + "*")
@@ -17,6 +19,7 @@ class show_flash_card:
             print("*-" * 20 + "*")
             choice = int(input('Enter your choice: '))
             if choice == 1:
+                self.mode.append(read_write())
                 press = input('Press (R)ead or (W)rite: ')
                 if press == 'R' or press == 'r':
                     self.word = read_write().read()
@@ -32,6 +35,7 @@ class show_flash_card:
                     print('-' * 41)
                     self.start()
             elif choice == 2:
+                self.mode.append(Get_Vocab())
                 self.word = Get_Vocab().get_vocabulary()
                 self.display()
             else:
@@ -46,11 +50,12 @@ class show_flash_card:
             self.start()
 
     def display(self):
-        print("-" * 19)
-        print("- Press Q to exit -")
-        print("-" * 19)
         try:
             while True:
+                os.system('clear')
+                print("-" * 19)
+                print("- Press Q to exit -")
+                print("-" * 19)
                 try:
                     if len(self.word) == 0:
                         print("You have completed all the words")
@@ -66,6 +71,7 @@ class show_flash_card:
                 print('=' * 41)
                 press = input("Press (M)eaning or (N)ext: ")
                 if press == 'M' or press == 'm':
+                    os.system('clear')
                     print('-' * 41)
                     print(f"{self.word[vocab]:^41}")
                     print('-' * 41)
