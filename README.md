@@ -47,3 +47,11 @@ The program is divided into 5 classes:
 - FlashCardShow: This class is the show
 - Read_write: This class is the read and write csv file
 - Get_vocabulary: This class is the get vocabulary from user input 
+
+## Code structure
+The program is divided into 5 files:
+- flash_card.py: This file contains the main function.
+- flash_card_game.py: This file contains the class FlashCardGame.
+- flash_card_show.py: This file contains the class FlashCardShow.
+- read_write.py: This file contains the class Read_write.
+- get_vocabulary.py: This file contains the class Get_vocabulary.
