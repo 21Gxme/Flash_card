@@ -1,5 +1,5 @@
 # Project : Flash card
-Flash card is a simple application that helps you to learn now words. It is a very useful
+Flash card is a simple application that helps you to learn new words. It is a very useful
 tool for students and people who want to learn a new language. In addition,it will help you
 to learn other subjects like math, history, geography, e.g. memorizing the year about historical events, 
 the capital of countries, the multiplication table, etc.
