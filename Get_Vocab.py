@@ -1,7 +1,8 @@
 class Get_Vocab:
     def __init__(self):
-        self.word = {}
+        self.word = {}  # dictionary
 
+    #  get vocabulary from user
     def get_vocabulary(self):
         print("Enter the vocabulary and meaning (Press Q to exit)")
         while True:

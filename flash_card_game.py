@@ -6,8 +6,8 @@ from Get_Vocab import Get_Vocab
 
 class FlashCardGame:
     def __init__(self):
-        self.word = {}
-        self.mode = []
+        self.word = {}  # dictionary
+        self.mode = []  # list of object
         self.__hp = 3  # private variable
 
     @property
@@ -20,6 +20,7 @@ class FlashCardGame:
     def hp(self, hp):
         self.__hp = hp
 
+    # start the game
     def start(self):
         print("*-" * 20 + "*")
         print("Welcome to Flash Card Game")
@@ -29,7 +30,7 @@ class FlashCardGame:
                   "Flash Card Game from users Press(2):")
             print("*-" * 20 + "*")
             choice = int(input('Enter your choice: '))
-            if choice == 1:  # if else block
+            if choice == 1:
                 self.mode.append(read_write())
                 press = input('Press (R)ead or (W)rite: ')
                 if press == 'R' or press == 'r':
@@ -58,6 +59,7 @@ class FlashCardGame:
             print('-' * 40)
             self.start()
 
+    # display the flash card
     def display(self):
         while True:
             os.system('clear')

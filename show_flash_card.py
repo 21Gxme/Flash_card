@@ -6,9 +6,10 @@ from Get_Vocab import Get_Vocab
 
 class show_flash_card:
     def __init__(self):
-        self.word = {}
-        self.mode = []
+        self.word = {}  # dictionary
+        self.mode = []  # list of objects
 
+    # start the game
     def start(self):
         print("*-" * 20 + "*")
         print("Welcome to Show Flash Card")
@@ -49,6 +50,7 @@ class show_flash_card:
             print('-' * 41)
             self.start()
 
+    # display the flash card
     def display(self):
         try:
             while True:

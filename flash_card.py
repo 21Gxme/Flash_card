@@ -4,6 +4,7 @@ from show_flash_card import show_flash_card
 
 
 class flash_card:
+    # main method to start the game
     def start(self):
         print("""
 █░█░█ █▀▀ █░░ █▀▀ █▀█ █▀▄▀█ █▀▀   ▀█▀ █▀█   █▀▀ █░░ ▄▀█ █▀ █░█   █▀▀ ▄▀█ █▀█ █▀▄

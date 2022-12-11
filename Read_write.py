@@ -2,7 +2,6 @@ import csv
 
 
 class read_write:
-
     def write(self):
         try:
             with open(input("Enter the file name: "), 'a', newline='') as file:
@@ -32,4 +31,3 @@ class read_write:
 if __name__ == '__main__':
     # read_write().write()
     print(read_write().read())
-
