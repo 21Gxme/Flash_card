@@ -55,3 +55,6 @@ The program is divided into 5 files:
 - flash_card_show.py: This file contains the class FlashCardShow.
 - read_write.py: This file contains the class Read_write.
 - get_vocabulary.py: This file contains the class Get_vocabulary.
+
+## Github link
+https://github.com/21Gxme/Flash_card
